@@ -1,3 +1,3 @@
 # TableTopping-Repo
 
-#This is the repository for our github project for a 2D unity boardgame
+#This is the repository for our github project for a 2D unity boardgame without a good name
