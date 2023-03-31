@@ -2,11 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
 
     public AudioMixer audioMixer;
+
+    public TMPro.TMP_Dropdown resolutionDropdown; 
+
+    Resolution[] resolutions; //array to store screen resolutions that the computer is capable of
+
+    //method runs on scene load 
+    void Start()
+    {
+        //Reference Link: https://youtu.be/YOaYQrN1oYQ?t=551
+        //On scene load this section deals with screen resolution
+
+        //ResolutionDropdown object 'options menu': Canvas > Options Menu > GraphicsDropdown > Dropdown-TextMeshPro > Options
+        //*****The values in the options menu will be updated on scene load, it will not say Option A, B, C*****/
+
+
+        resolutions = Screen.resolutions; //fill array with resolutions that the computer has availible to it
+        
+        resolutionDropdown.ClearOptions(); //clear dropdown menu options 
+
+        List<string> options = new List<string>(); //create a list of strings that will be used as the new options 
+
+        int currentResolutionIndex = 0; 
+
+        for (int i = 0; i < resolutions.Length; i++) //fill the options list with the screen resolutions found earlier in the start method
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height; //get width and height of the resolution[i] and make a string out of it
+            options.Add(option); //add the resolution string to the options list 
+
+            if (System.String.Equals(resolutions[i].ToString(), Screen.currentResolution.ToString())) //cant compare resolution objects directly so they need to be converted to strings first
+            {
+                currentResolutionIndex = i;//store the value of the options menu that corresponds with the computer's screen resolution
+            }
+
+        }
+
+        resolutionDropdown.AddOptions(options);//use the options list as our new dropdown menu options (no longer the default options: Option A, Option B, Option C)
+        resolutionDropdown.value = currentResolutionIndex; //set dropdown list value to the respective screen resolution index value
+        resolutionDropdown.RefreshShownValue();//update value shown in the dropdown list
+    }
+
+
+
 
     //Reference Link: https://youtu.be/YOaYQrN1oYQ?t=73
     //This function sets the game's masterVolume audio parameter equal to the VolumeSlider object value.
@@ -48,6 +91,7 @@ public class SettingsMenu : MonoBehaviour
         //if checkbox is deselected then the game changes to windowed mode
         Screen.fullScreen = isFullscreen;
     }
+
 
 
 }
