@@ -5,13 +5,14 @@ using CodeMonkey.Utils;
 
 public class Testing : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
 
     private Grid grid;
 
+    // Start is called before the first frame update
     private void Start()
     {
-        grid = new Grid(4, 2, 10f);
+        grid = new Grid(4, 2, 5f);
     }
 
     // Update is called once per frame

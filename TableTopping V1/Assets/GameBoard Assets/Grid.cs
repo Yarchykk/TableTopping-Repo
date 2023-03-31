@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 
+//https://www.youtube.com/watch?v=waEsGu--9P8&list=PLzDRvYVwl53uhO8yhqxcyjDImRjO9W722&index=1
+//Making a grid system in Unity from Code Monkey
 public class Grid
 {
     private int width;
@@ -24,7 +26,9 @@ public class Grid
         {
             for(int y = 0; y < gridArray.GetLength(1); y++)
             {
+                //Places 0 in each box
                 debugTextArray[x,y] = UtilsClass.CreateWorldText(gridArray[x,y].ToString(), null, GetWorldPosition(x,y) + new Vector3(cellSize,cellSize) * 0.5f, 20, Color.white, TextAnchor.MiddleCenter);
+                //Draws lines from bottom left corner up and right
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
                 Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
            
@@ -41,6 +45,7 @@ public class Grid
         return new Vector3(x, y) * cellSize;
     }
 
+    //Given a world positon, returns the x and y coordinates relative to the cellSize
     private void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt(worldPosition.x / cellSize);
@@ -58,8 +63,29 @@ public class Grid
 
     public void SetValue(Vector3 worldPosition, int value)
     {
-        GetXY(worldPosition, out int x, out int y);
+        int x;
+        int y;
+        GetXY(worldPosition, out x, out y);
         SetValue(x, y, value);
 
+    }
+
+    public int GetValue(int x, int y)
+    {
+        if (x >= 0 && y >= 0 && x < width && y < height)
+        {
+            return gridArray[x, y];
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public int GetValue(Vector3 worldPosition)
+    {
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        return GetValue(x, y);
     }
 }
