@@ -49,7 +49,11 @@ public class SettingsMenu : MonoBehaviour
     }
 
 
-
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
 
     //Reference Link: https://youtu.be/YOaYQrN1oYQ?t=73
     //This function sets the game's masterVolume audio parameter equal to the VolumeSlider object value.
