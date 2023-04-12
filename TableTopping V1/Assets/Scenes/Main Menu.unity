@@ -307,10 +307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1006,7 +1006,6 @@ Transform:
   m_Children:
   - {fileID: 483852808}
   - {fileID: 1151019589}
-  - {fileID: 1293613246}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2167,6 +2166,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486da24a9442e514286aa7f72782af16, type: 3}
+--- !u!1 &1013599815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6973204898293588189, guid: 1925c45d0aef54346a0130db02817b11, type: 3}
+  m_PrefabInstance: {fileID: 180022010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1022609529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1982031130}
+  - {fileID: 1293613246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2670,7 +2675,7 @@ GameObject:
   - component: {fileID: 1293613245}
   - component: {fileID: 1293613244}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: EventSystemUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,7 +2693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
+  m_SendPointerHoverToParent: 0
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2708,7 +2713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1013599815}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1293613246
@@ -2723,8 +2728,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 325088381}
-  m_RootOrder: 2
+  m_Father: {fileID: 1036991426}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1377179738
 GameObject:
@@ -4603,6 +4608,10 @@ PrefabInstance:
     - target: {fileID: 480973701668539061, guid: 0a86681705add8448a33c521742eb693, type: 3}
       propertyPath: m_Transition
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 480973701668539061, guid: 0a86681705add8448a33c521742eb693, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 480973701668539061, guid: 0a86681705add8448a33c521742eb693, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
