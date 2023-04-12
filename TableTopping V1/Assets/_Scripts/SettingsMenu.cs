@@ -29,18 +29,20 @@ public class SettingsMenu : MonoBehaviour
 
         List<string> options = new List<string>(); //create a list of strings that will be used as the new options 
 
-        int currentResolutionIndex = 0; 
+        int currentResolutionIndex = 0;
 
         for (int i = 0; i < resolutions.Length; i++) //fill the options list with the screen resolutions found earlier in the start method
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height; //get width and height of the resolution[i] and make a string out of it
-            options.Add(option); //add the resolution string to the options list 
-
-            if (System.String.Equals(resolutions[i].ToString(), Screen.currentResolution.ToString())) //cant compare resolution objects directly so they need to be converted to strings first
+            if (resolutions[i].refreshRate == Screen.currentResolution.refreshRate)//account for monitor's refreshrate and only displays options of that refreshrate (without this there will be duplicate screen resolutions of different refreshrates)
             {
-                currentResolutionIndex = i;//store the value of the options menu that corresponds with the computer's screen resolution
-            }
+                string option = resolutions[i].width + " x " + resolutions[i].height; //get width and height of the resolution[i] and make a string out of it
+                options.Add(option); //add the resolution string to the options list 
 
+                if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) //cant compare resolution objects directly so they need to be converted to strings first
+                {
+                    currentResolutionIndex = i;//store the value of the options menu that corresponds with the computer's screen resolution
+                }
+            }
         }
 
         resolutionDropdown.AddOptions(options);//use the options list as our new dropdown menu options (no longer the default options: Option A, Option B, Option C)
