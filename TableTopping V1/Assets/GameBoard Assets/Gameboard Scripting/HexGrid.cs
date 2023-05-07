@@ -54,5 +54,10 @@ public class HexGrid : MonoBehaviour
             new Vector2(position.x, position.z);
         label.text = x.ToString() + "\n" + z.ToString();
     }
+
+    void Start()
+    {
+        hexMesh.Triangulate(cells);
+    }
  
 }

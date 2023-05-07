@@ -14,12 +14,14 @@ public static class HexMetrics
     public const float innerRadius = outerRadius * 0.866025404f;
 
     //Details location of corners relative to center of hexagon with point top hex
+    //seventh corner exists to prevent index out of bound error when rendering triangles in HexMesh script
     public static Vector3[] corners = {
         new Vector3(0f, 0f, outerRadius),
         new Vector3(innerRadius, 0f, 0.5f * outerRadius),
         new Vector3(innerRadius, 0f, -0.5f * outerRadius),
         new Vector3(0f, 0f, -outerRadius),
         new Vector3(-innerRadius, 0f, -0.5f * outerRadius),
-        new Vector3(-innerRadius, 0f, 0.5f * outerRadius)
+        new Vector3(-innerRadius, 0f, 0.5f * outerRadius),
+        new Vector3(0f, 0f, outerRadius)
     };
 }
